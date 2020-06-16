@@ -1,0 +1,398 @@
+/*设置顶部导航栏*/
+html
+{
+    width:100%;
+}
+body
+{
+    width:100%;
+}
+.topbar-wrapper
+{
+    width: 100%;
+    background-color: #333;
+    height:40px;
+    line-height: 40px;
+}
+li
+{
+    list-style: none;
+    margin-left: -40px;
+    color:aquamarine;
+}
+li a
+{
+    color:#b0b0b0;
+    text-decoration: none;
+}
+.service li:first-child
+{
+    margin-left: 30px;
+}
+.service li a
+{
+    float:left;
+    text-decoration: none;
+    line-height: 40px;
+    font-size: 12px;
+}
+.service li a:hover
+{
+    color:white;
+}
+.user-choice li a,.shopping-cart li a
+{
+    float:right;
+    text-decoration: none;
+    line-height: 40px;
+    font-size: 12px;;
+}
+.user-choice li a:hover
+{
+    color:white;
+}
+.shopping-cart
+{
+    margin-right:50px;
+}
+.shopping-cart li a i
+{
+    line-height: 40px;
+}
+.service .line
+{
+    float:left;
+    color:#424242;
+    margin:0 .2em;
+    line-height: 40px;
+}
+.user-choice .line,.shopping-cart .line
+{
+    float:right;
+    color:#424242;
+    margin:0 .2em;/*1em = 16px*/
+    line-height: 40px;
+}
+.shopping-cart a
+{
+    width:120px;
+    height:40px;
+    display: block;
+    background-color: #424242;
+    text-align: center;
+}
+.shopping-cart:hover a
+{
+    background-color: white;
+    color:#ff6700;
+}
+.app:hover .QRcode,
+.app:hover::after
+{
+    display: block;
+}
+li:hover > .app::after/*做三角形角标的办法*/
+{
+    content:'';
+    position: absolute;
+    width:0;
+    height:0;
+    background-color:#333;
+    border:6px solid transparent;
+    border-top:none;
+    border-bottom-color:white;
+    bottom:0;
+    left:0;
+    right:0;
+    margin:auto;
+}
+.app
+{
+    position: relative;
+    z-index: 99999;
+}
+.app .QRcode
+{
+    display: none;
+    /*隐藏元素的另一种方法：将height设为0
+    并且设置overflow
+    */
+    position: absolute;
+    left:-40px;
+    width:124px;
+    height:148px;
+    background-color:white;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .3);
+    line-height: 1;
+    margin:0 auto;
+    /*添加过渡效果
+    高度发生变化时
+    */
+    transition: height 1s;
+}
+.app .QRcode img
+{
+    width:90px;
+    height:90px;
+    margin:0 14px;
+    margin-top: 10px;
+}
+.app .QRcode span
+{
+    margin:0 24px;
+}
+/*设置第二个导航栏*/
+.secondbar-wrapper
+{
+    height:100px;
+    background-color:white;
+    position: relative;
+}
+.secondbar-wrapper .logo
+{
+    width:55px;
+    position: relative;
+    height:55px;
+    left: 55px;
+    float:left;
+    background-color: #ff6700;
+    overflow: hidden;
+    display:block;
+    z-index: 999;
+}
+.secondbar-wrapper .logo a
+{
+    position: absolute;
+    left:55px;
+    display: block;
+    width:55px;
+    height:55px;
+    background-position: center;
+    background-image: url(../needPhotos/mi-logo.png);
+    transition: left 0.1s;
+}
+.secondbar-wrapper .logo .mi
+{
+    left:0px;
+}
+.secondbar-wrapper .logo .home
+{
+    background-image: url(../needPhotos/mi-home.png);
+    left:-55px;
+}
+.secondbar-wrapper .logo:hover .mi
+{
+    left:55px;
+}
+.secondbar-wrapper .logo:hover .home
+{
+    left:0;
+}
+.secondbar-wrapper .nav-wrapper
+{
+    float:left;
+    height:100px;
+    width:850px;
+    background-color:white;
+    position: absolute;
+    left: 110px;
+}
+.nav-wrapper .first-nav
+{
+    margin-left: -10px;
+    visibility: hidden;
+}
+.nav-wrapper li a
+{
+    float:left;
+    margin-left:20px;
+    line-height: 65px;
+    color:black;
+}
+.nav-wrapper li a:hover
+{
+    color:#ff6700;
+}
+.nav-wrapper .goods-info
+{
+    position: absolute;
+    height:0;
+    width:163%;
+    height:0;
+    top:80px;
+    left:-110px;
+    transition:height 1s;/*设置过渡效果*/
+    overflow: hidden;
+    margin-top:20px;
+    z-index:9999;
+}
+
+.nav-list .show-goods:hover ~ .goods-info,
+.goods-info:hover
+{
+    height:228px;
+    border-top: 1px #b0b0b0 solid;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+    background-color: white;
+}
+/*搜索框*/
+.search-box-wrapper
+{
+    position: relative;
+    width:296px;
+    height:50px;
+    background-color: white;
+    float:right;
+    margin-top:18px;
+    margin-right:50px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, .3);
+}
+.search-box-wrapper .input-box
+{
+    display: block;
+    float:left;
+    border:0;
+    padding:0;
+    margin:0;
+    height:100%;
+    width:80%;
+    z-index:99;
+}
+.search-box-wrapper .icon
+{
+    float: right;
+    display:block;
+    position:absolute;  
+    border-left: #b0b0b0 solid 1px;
+    top:0;
+    right:0;
+    height:100%;
+    width:10%;
+    padding-left:29px;
+    margin-left:14px;
+    background-color:white;
+} 
+.search-box-wrapper .icon:hover
+{
+    background-color: #ff6700;
+    color:white;
+}
+.search-box-wrapper .icon i
+{
+    margin-top:17px;
+    margin-left:-8px;
+}
+/*设置固定栏*/
+
+.fixed-wrapper
+{
+    border:1px solid #b0b0b0;
+    width:100px;
+    position: fixed;
+    right:0;
+}
+.fixed-bar .line
+{
+    
+    width:100%;
+    height:1px;
+    background-color: #b0b0b0;
+    
+}
+.fixed-bar
+{
+    padding:0;
+}
+.fixed-bar li
+{
+    margin:0;
+}
+.fixed-bar li a
+{
+    display: block;
+    margin-left:15px;
+    text-align: center;/*设置文字垂直居中*/
+    font-size: 14px;
+}
+.fixed-bar li a img
+{
+    display:block;
+    width:30px;
+    height:30px;
+    margin-left:24px;
+    margin-top:20px;
+}
+.fixed-bar li a span
+{
+    display: block;
+    margin-bottom: 20px;
+}
+.qrcode
+{
+    position: absolute;
+    top:-20px;
+    left:-130px;
+    width:124px;
+    height:170px;
+    background-color:white;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .3);
+    line-height: 1;
+    text-align: center;
+    color: #b0b0b0;
+    display: none;
+}
+.fixed-bar .app:hover .qrcode
+{
+    display: block;
+}
+.qrcode .qrpic
+{
+    margin-right: 6px;
+    margin-top:15px;
+}
+.qrcode .qrpic img
+{
+    width:90%;
+    height: 90%;
+}
+.fixed-bar li:hover a span
+{
+    color:#ff6700;
+}
+/*商品分类*/
+.goodsclass-wrapper
+{
+    
+    background-image: url("../needPhotos/smartphone.jpg");
+    background-size: 1350px 460px;
+    width:1350px;
+    height:460px;
+}
+.goodsclass-wrapper .goodsclassify
+{
+    width:15%;
+    height:100%;
+    border-right:1px solid #b0b0b0;
+    position: relative;
+    line-height: 45px;
+    background-color: rgba(97, 95, 95, 0.4);
+    margin: 0;
+}
+.goodsclassify li a
+{
+    color:white;
+    margin-left:20px;
+}
+.goodsclassify li a i
+{
+    position: absolute;
+    right:20px;
+    font-size: 22px;
+    color:#dbdbdb;
+    margin-top:15px;
+}
+.goodsclassify li:hover
+{
+    background-color: #ff6700;
+    
+}
